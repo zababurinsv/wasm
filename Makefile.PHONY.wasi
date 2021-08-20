@@ -42,13 +42,13 @@ EXE				= $(EXE_$(ARCH))
 ALLDEPS			= Makefile
 
 install:
-	install ./*.mjs ./*.wasm ./src/
-	rm -fr *.mjs *.o *.html *.wasm *.wasm.map
+	install ./*.js ./*.wasm ../dist/
+	rm -fr *.js *.o *.html *.wasm *.wasm.map
 uninstall:
-	rm -rf ./src/*.mjs ./src/*.wasm
+	rm -rf ../dist/*.js ../dist/*.wasm
 
 clean:
-	rm -fr ./src/*.mjs ./src/*.o ./src/*.html ./src/*.wasm ./src/*.wasm.map ./src/*.depend ./src/*.data
+	rm -fr ./dist/*.js ./dist/*.o ./dist/*.html ./dist/*.wasm ./dist/*.wasm.map ./dist/*.depend ./dist/*.data ./dist/*.mjs
 
 ifneq ($(wildcard $(DEPFILE)),)
 include $(DEPFILE)

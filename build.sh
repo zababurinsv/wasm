@@ -1,17 +1,26 @@
 #!/bin/bash
-#make  -f Makefile.PHONY.wasi  clean
+make  -f Makefile.PHONY.wasi  clean
 sudo docker run --rm -v $(pwd):/src -u $(id -u):$(id -g) emscripten/emsdk \
-emcc -Os  ./main.c -o ./src/idbfs.mjs \
+emcc -Os --bind ./main.c -o ./dist/main.mjs \
  -s FORCE_FILESYSTEM=1 \
  -lidbfs.js \
+ -lworkerfs.js \
+ -gsource-map \
  -s INVOKE_RUN=1 \
  -s FORCE_FILESYSTEM=1 \
  -s ASYNCIFY=1 \
  -s USE_ZLIB=1 \
  -s MODULARIZE=1 \
- -s EXPORT_ES6=1
+ -s EXPORT_ES6=1 \
+ --preload-file data \
+ -s EXPORTED_RUNTIME_METHODS=["FS"] \
+ -s ALLOW_MEMORY_GROWTH=1 \
+ -s USE_ES6_IMPORT_META=0 \
+ -s -s ASSERTIONS=1 \
+ -s MAXIMUM_MEMORY=4294901760
 
 
+./bin.sh
 #FLAGS="-Os -g4 \
 #-s FORCE_FILESYSTEM=1 \
 #-lidbfs.js \

@@ -2,7 +2,7 @@
   "name": "@orbit/idbfs",
   "version": "1.0.0",
   "description": "File System",
-  "main": "idbfs.js",
+  "main": "index.html",
   "directories": {
     "doc": "file system"
   },
@@ -12,6 +12,7 @@
   "type": "module",
   "scripts": {
     "build": "./build.sh",
+    "bin": "./bin.sh",
     "__options__":"echo name project fs",
     "options_clean": "make -f Makefile.PHONY.wasi clean",
     "__CC_html__":"echo name project fs",
