@@ -20,7 +20,7 @@ emcc -Os --bind ./main.c -o ./dist/main.mjs \
  -s MAXIMUM_MEMORY=4294901760
 
 
-./bin.sh
+#./bin.sh
 #FLAGS="-Os -g4 \
 #-s FORCE_FILESYSTEM=1 \
 #-lidbfs.js \
