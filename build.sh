@@ -12,7 +12,6 @@ emcc -Os --bind ./main.c -o ./dist/main.mjs \
  -s USE_ZLIB=1 \
  -s MODULARIZE=1 \
  -s EXPORT_ES6=1 \
- --preload-file data \
  -s EXPORTED_RUNTIME_METHODS=["FS"] \
  -s ALLOW_MEMORY_GROWTH=1 \
  -s USE_ES6_IMPORT_META=0 \
