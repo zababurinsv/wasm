@@ -4,7 +4,9 @@ od \
 --output-duplicates \
 --address-radix=n \
 --width=1 \
---format=u1 ./dist/main.wasm | tr '\n' ',' > ./mjs/wasm
+--format=u1 ./dist/main.wasm | tr '\n' ',' > ./dist/wasm
 
-cat ./mjs/start ./mjs/wasm ./mjs/end > ./dist/wasmBinary.mjs
-rm ./mjs/wasm
+echo "export default [" >>./dist/wasmBinary.mjs
+cat ./dist/wasm  >>./dist/wasmBinary.mjs
+echo "]" >>./dist/wasmBinary.mjs
+rm ./dist/wasm
