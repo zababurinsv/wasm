@@ -7,3 +7,4 @@ od \
 --format=u1 ./dist/main.wasm | tr '\n' ',' > ./mjs/wasm
 
 cat ./mjs/start ./mjs/wasm ./mjs/end > ./dist/wasmBinary.mjs
+rm ./mjs/wasm
