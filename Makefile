@@ -52,7 +52,7 @@ $(DEPFILE): $(ALLDEPS) *.c *.h
 	$(CC) -MM $(CFLAGS) $(SRCS) > $(DEPFILE)
 
 clean:
-	rm -f $(OBJS) $(EXE) $(DLL)
+	rm -fr ./dist/*.js ./dist/*.o ./dist/*.html ./dist/*.wasm ./dist/*.wasm.map ./dist/*.depend ./dist/*.data ./dist/*.mjs
 
 distclean:
 	$(MAKE) clean ARCH=$(ARCH)

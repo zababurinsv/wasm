@@ -1,5 +1,5 @@
 #!/bin/bash
-make  -f Makefile.PHONY.wasi  clean
+make  clean
 sudo docker run --rm -v $(pwd):/src -u $(id -u):$(id -g) emscripten/emsdk \
 emcc -Os --bind ./main.c -o ./dist/main.mjs \
  -s FORCE_FILESYSTEM=1 \
@@ -7,7 +7,7 @@ emcc -Os --bind ./main.c -o ./dist/main.mjs \
  -lworkerfs.js \
  -gsource-map \
  -s INVOKE_RUN=1 \
- -s FORCE_FILESYSTEM=1 \
+ -s SINGLE_FILE=1 \
  -s ASYNCIFY=1 \
  -s USE_ZLIB=1 \
  -s MODULARIZE=1 \
@@ -15,7 +15,7 @@ emcc -Os --bind ./main.c -o ./dist/main.mjs \
  -s EXPORTED_RUNTIME_METHODS=["FS"] \
  -s ALLOW_MEMORY_GROWTH=1 \
  -s USE_ES6_IMPORT_META=0 \
- -s -s ASSERTIONS=1 \
+ -s ASSERTIONS=1 \
  -s MAXIMUM_MEMORY=4294901760
 
 
