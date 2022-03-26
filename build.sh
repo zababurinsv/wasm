@@ -1,5 +1,6 @@
 #!/bin/bash
 make  clean
+mkdir ./dist
 sudo docker run --rm -v $(pwd):/src -u $(id -u):$(id -g) emscripten/emsdk \
 emcc -Os --bind ./main.c -o ./dist/main.mjs \
  -s FORCE_FILESYSTEM=1 \
